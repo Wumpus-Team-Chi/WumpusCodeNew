@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HuntTheWumpus
+namespace Wumpus
 {
     class GameControl
     {
@@ -20,7 +20,7 @@ namespace HuntTheWumpus
         public void newGame()
         {
             Console.WriteLine("Welcome to Hunt The Wumpus: Space Edition!");
-           // return startNewGame;
+            // return startNewGame;
             // Collects whether or not to start new game from UI and returns that val​
             // to all the other objects as a signal that game is being restarted and all variables must be reset.​
 
@@ -44,7 +44,7 @@ namespace HuntTheWumpus
         {
             if (numOfTrvivaQuestionsCorrect >= 3)
             {
-                 relocatePlayer = true;
+                relocatePlayer = true;
             }
             return relocatePlayer;
             //Gets the total number of trivia questions answered correctly from trivia object. If that value is more than 3, 
@@ -61,10 +61,11 @@ namespace HuntTheWumpus
             //call sound, GUI, high score to inform about the event​
             //it does not return anything​ but does ask if user wants to play again
         }
-        public void collectedCoin()
+        public int collectedCoin()
         {
             // called by player object if the player has collected a coin​
             totalCoins++;
+            return totalCoins;
 
         }
         public void isNearbyWumpus()
