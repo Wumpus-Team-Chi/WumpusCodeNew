@@ -48,8 +48,8 @@ namespace WumpusTest
                 int roomNumber = -1;
             }else if(wins < losses){
                 //roomNumber = gen.nextInt();
-                return roomNumber;
             }
+            return roomNumber;
         }
         
         public int AskQuestion(){
