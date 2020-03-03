@@ -12,6 +12,10 @@ namespace HuntTheWumpus
 {
     public partial class Form1 : Form
     {
+        UI ui;
+        int x = 100;
+        int y = 100;
+        int animationNumber = 0;
         public Form1()
         {
             InitializeComponent();
@@ -23,7 +27,34 @@ namespace HuntTheWumpus
             GameControl game = new GameControl();
             HighScore highScore = new HighScore(0);
             Trivia trivia = new Trivia();
-            UI ui = new UI();
+            ui = new UI();
+        }
+
+        private void movePlayer_Click(object sender, EventArgs e)
+        {
+            x = Convert.ToInt32(playerInputX.Text);
+            y = Convert.ToInt32(playerInputY.Text);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(ui != null)
+            {
+                ui.drawPlayer(x, y, true, player, animationNumber);
+                if(animationNumber < 3)
+                {
+                    animationNumber++;
+                }
+                else
+                {
+                    animationNumber = 0;
+                }
+            }
         }
     }
 }
