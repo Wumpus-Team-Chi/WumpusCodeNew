@@ -15,6 +15,7 @@ namespace WumpusTest
         {
             Random gen = new Random(); // I still do not know the C++ version of this
             int wins;
+            int losses;
             for(int i = 0; i < 3; i++){
                 int question = AskQuestion();
                 if(question == 1){
@@ -24,17 +25,17 @@ namespace WumpusTest
                 }
             }
             if(wins < losses){
-                return -1;
+                int roomNumber = -1;
             }else if(wins > losses){
-                int roomNumber = gen.nextInt();
-                return roomNumber
+                //int roomNumber = gen.nextInt();
             }
+            return roomNumber;
         }
 
-        public int WumpusRoom()
-        {
-            Random gen = new Random(); // I still do not know the C++ version of this
+        public int WumpusRoom(){
+           // Random gen = new Random(); // I still do not know the C++ version of this
             int wins;
+            int losses;
             for(int i = 0; i < 5; i++){
                 int question = AskQuestion();
                 if(question == 1){
@@ -44,15 +45,14 @@ namespace WumpusTest
                 }
             }
             if(wins > losses){
-                return -1;
+                int roomNumber = -1;
             }else if(wins < losses){
-                int roomNumber = gen.nextInt();
-                return roomNumber
+                //roomNumber = gen.nextInt();
+                return roomNumber;
             }
         }
         
-        public int AskQuestion()
-        {
+        public int AskQuestion(){
             answer = 0;
             return answer;
         }
