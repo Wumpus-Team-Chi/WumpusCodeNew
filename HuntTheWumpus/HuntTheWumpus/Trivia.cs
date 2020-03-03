@@ -31,7 +31,8 @@ namespace WumpusTest
             }
         }
 
-        public int WumpusRoom(){
+        public int WumpusRoom()
+        {
             Random gen = new Random(); // I still do not know the C++ version of this
             int wins;
             for(int i = 0; i < 5; i++){
@@ -50,7 +51,8 @@ namespace WumpusTest
             }
         }
         
-        public int AskQuestion(){
+        public int AskQuestion()
+        {
             answer = 0;
             return answer;
         }
