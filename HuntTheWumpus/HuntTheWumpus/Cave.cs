@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,30 +11,24 @@ namespace MyWumpusWork
     class Cave
     {
         //instance variables
-        private Room[][] myCave = new Room[5][];
+        private Room[] myCave = new Room[30];
         //constructors
         public Cave(String fileName)
         {
-            for (int i = 0; i < myCave.Length; i++)
-            {
-                myCave[i] = new Room[6];
-            }
+
             //read the file
             //depending on the number in the array, put a room object in the array
             //for the room object use the file to change the room identity. 
             //pick 2 rooms at random to have bats
             //pick 1 room at random to have a bottomless pit
             //pick 1 room at random to have a wumpus
-            
+
 
         }
         //Probably gonna delete this constructor if I cant end up figuring it out. 
         public Cave()
         {
-            for (int i = 0; i < myCave.Length; i++)
-            {
-                myCave[i] = new Room[6];
-            }
+
             //assign each element in the array some room object with some other number. Ensure each number is unique
             //pick 2 rooms at random to have bats
             //pick 1 room at random to have a bottomless pit
@@ -63,7 +57,7 @@ namespace MyWumpusWork
             //   \__/ 
             // 0 will be closed room
             // other values will indicate what room openings are available 
-            return accessibleRooms; 
+            return accessibleRooms;
         }
         public int[] getBatRooms()
         {
@@ -72,40 +66,36 @@ namespace MyWumpusWork
             int[] batRoomNumbers = new int[2];
             for (int i = 0; i < myCave.Length; i++)
             {
-                for (int j = 0; j < myCave[i].Length; j++)
+                int r = myCave[i].getRoomNum();
+                if (myCave[i].isBatPresent(r))
                 {
-                    int r = myCave[i][j].getRoomNum();  
-                    if (myCave[i][j].isBatPresent(r))
+                    if (room1 != room2 && room1 < 0)
                     {
-                        if (room1 != room2 && room1 < 0)
-                        {
-                            room1 = myCave[i][j].getRoomNum();
-                        }else if(room2 < 0)
-                        {
-                            room2 = myCave[i][j].getRoomNum();
-                        }
+                        room1 = myCave[i].getRoomNum();
+                    }
+                    else if (room2 < 0)
+                    {
+                        room2 = myCave[i].getRoomNum();
                     }
                 }
+
             }
             batRoomNumbers[0] = room1;
             batRoomNumbers[1] = room2;
-            return batRoomNumbers; 
+            return batRoomNumbers;
         }
         public int getWumpusRoom()
         {
-        
+
             for (int i = 0; i < myCave.Length; i++)
             {
-                for (int j = 0; j < myCave[i].Length; j++)
+                int r = myCave[i].getRoomNum();
+                if (myCave[i].isWumpusPresent(r))
                 {
-                    int r = myCave[i][j].getRoomNum();
-                    if (myCave[i][j].isWumpusPresent(r))
-                    {
-                        return r;
-                    }
+                    return r;
                 }
             }
-            return -1; // if it gets here something in cave generation or wumpus assignment went wrong. 
+            return -1;
         }
     }
 }

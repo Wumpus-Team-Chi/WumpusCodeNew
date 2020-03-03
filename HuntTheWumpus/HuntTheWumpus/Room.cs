@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HuntTheWumpus
+namespace MyWumpusWork
 {
     class Room
     {
@@ -15,16 +15,20 @@ namespace HuntTheWumpus
         public bool pitPresent;
         private int roomNumber;
         //constructor
-        public Room()
+        public Room(int roomIdentity)
         {
             playerPresent = false;
             wumpusPresent = false;
             batsPresent = false;
             pitPresent = false;
-            roomNumber = -1;
+            roomNumber = roomIdentity;
             //create room object with the variables above
         }
         //accessor
+        public int getRoomNum()
+        {
+            return roomNumber; 
+        }
         public bool isPlayerPresent(int roomNumber)
         {
             //test whether the room object has a player
