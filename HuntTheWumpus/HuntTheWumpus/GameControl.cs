@@ -35,9 +35,16 @@ namespace Wumpus
 
         }
         public bool hasEncounteredPit(int newRoom)
+
         {
+            int[] PitRooms = {1,2,3,4,5};
             //Compares list of pits with the current room val of the player. If they are the same, it means that the player is in the same​
             //room as a pit. If this is the case, return a bool val to trivia in order to intitiate the questions sequence.​
+            for (int i = 0; i < PitRooms.Length; i++) {
+                if (PitRooms[i] == newRoom) {
+                    arePitsPresent = true;
+                }
+            }
             return arePitsPresent;
         }
         public bool relocate(int numOfTrvivaQuestionsCorrect)
@@ -52,6 +59,14 @@ namespace Wumpus
         }
         public bool hasEncounteredBats(int newRoom)
         {
+            int[] BatRooms = {6,7,8,9,10};
+            for (int i = 0; i < BatRooms.Length; i++)
+            {
+                if (BatRooms[i] == newRoom)
+                {
+                    areBatsPresent = true;
+                }
+            }
             // Finds current room that the player is in from loc object(from HS method) and gives it to Cave. 
             //Cave tells me if bats are present and if so, it calls the location object for player and signals to relocate..​
             return areBatsPresent;
