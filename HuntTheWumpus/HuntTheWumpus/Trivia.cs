@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace WumpusTest
+namespace HuntTheWumpus
 {
     class Trivia
     {
@@ -14,8 +14,9 @@ namespace WumpusTest
         public int BottomlessPit()
         {
             Random gen = new Random(); // I still do not know the C++ version of this
-            int wins;
-            int losses;
+            int wins = 0;
+            int losses = 0;
+            int roomNumber = 0;
             for(int i = 0; i < 3; i++){
                 int question = AskQuestion();
                 if(question == 1){
@@ -25,7 +26,7 @@ namespace WumpusTest
                 }
             }
             if(wins < losses){
-                int roomNumber = -1;
+                roomNumber = -1;
             }else if(wins > losses){
                 //int roomNumber = gen.nextInt();
             }
@@ -33,10 +34,11 @@ namespace WumpusTest
         }
 
         public int WumpusRoom(){
-           // Random gen = new Random(); // I still do not know the C++ version of this
-            int wins;
-            int losses;
-            for(int i = 0; i < 5; i++){
+            // Random gen = new Random(); // I still do not know the C++ version of this
+            int wins = 0;
+            int losses = 0;
+            int roomNumber = 0;
+            for (int i = 0; i < 5; i++){
                 int question = AskQuestion();
                 if(question == 1){
                     wins++;
@@ -45,7 +47,7 @@ namespace WumpusTest
                 }
             }
             if(wins > losses){
-                int roomNumber = -1;
+                roomNumber = -1;
             }else if(wins < losses){
                 //roomNumber = gen.nextInt();
             }
@@ -53,7 +55,7 @@ namespace WumpusTest
         }
         
         public int AskQuestion(){
-            answer = 0;
+            int answer = 0;
             return answer;
         }
     }
